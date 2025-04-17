@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esduman <esduman@student.42istanbul.com.t  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 15:18:38 by esduman           #+#    #+#             */
-/*   Updated: 2025/04/16 13:10:18 by esduman          ###   ########.fr       */
+/*   Created: 2025/04/16 13:03:56 by esduman           #+#    #+#             */
+/*   Updated: 2025/04/17 07:47:22 by esduman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_ultimate_div_mod(int *a, int *b)
+void	ft_sort_int_tab(int *tab, int size)
 {
-	int	o_value;
+	int	i;
+	int	value;
+	int	swap;
 
-	o_value = *a;
-	*a = *a / *b;
-	*b = o_value % *b;
+	i = 0;
+	swap = 0;
+	while (i < size - 1)
+	{	
+		if (tab[i] > tab[i + 1])
+		{
+			value = tab[i + 1];
+			tab[i + 1] = tab[i];
+			tab[i] = value;
+			swap = 1;
+		}
+		i++;
+	}
+	if (swap)
+		ft_sort_int_tab(tab, size - 1);
 }
