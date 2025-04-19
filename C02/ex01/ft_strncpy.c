@@ -1,40 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_ft.c                                   :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esduman <esduman@student.42istanbul.com.t  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/14 08:01:36 by esduman           #+#    #+#             */
-/*   Updated: 2025/04/17 10:36:05 by esduman          ###   ########.fr       */
+/*   Created: 2025/04/19 18:00:10 by esduman           #+#    #+#             */
+/*   Updated: 2025/04/19 18:43:13 by esduman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_ultimate_ft(int *********nbr)
+char    *ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	*********nbr = 42;
+	char *ret = dest;
+
+	if (!n--)
+		return ret;
+
+	while ((*dest++ = *src++))
+	{
+		if (!n--)
+			return ret;
+	}
+
+	while (n--)
+		*dest++ = 0;
+
+	return ret;
 }
 
 int	main(void)
 {
-	int a = 10;
-	int *p1 = &a;
-	int **p2 = &p1;
-	int ***p3 = &p2;
-	int ****p4 = &p3;
-	int *****p5 = &p4;
-	int ******p6 = &p5;
-	int *******p7 = &p6;
-	int ********p8 = &p7;
+	char cdizi1[] = "Nasilsin";
+	char cdizi2[] = "Iyiyim";
 
-	ft_ultimate_ft(&p8);
-	
-	char c = (a / 10) + '0';
+	ft_strncpy(cdizi1, cdizi2, 4);
 
-	write(1, &c, 1);
-	c = (a % 10) + '0';
-	write(1, &c, 1);
-	return (0);
+	printf("cdizi1 bellek içeriği: %s\n", cdizi1);
+
+	return 0;
 }

@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_ft.c                                   :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esduman <esduman@student.42istanbul.com.t  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/14 08:01:36 by esduman           #+#    #+#             */
-/*   Updated: 2025/04/17 10:36:05 by esduman          ###   ########.fr       */
+/*   Created: 2025/04/19 18:48:24 by esduman           #+#    #+#             */
+/*   Updated: 2025/04/19 18:54:10 by esduman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_ultimate_ft(int *********nbr)
+int	ft_str_is_alpha(char *str)
 {
-	*********nbr = 42;
+	int	i;
+	i = 0;
+
+	while(str[i])
+	{
+		if((str[i] >= 'a' && str[i] >= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))
+			return (1);
+		else
+			return (0);
+	}
+	return (1);
 }
 
 int	main(void)
 {
-	int a = 10;
-	int *p1 = &a;
-	int **p2 = &p1;
-	int ***p3 = &p2;
-	int ****p4 = &p3;
-	int *****p5 = &p4;
-	int ******p6 = &p5;
-	int *******p7 = &p6;
-	int ********p8 = &p7;
-
-	ft_ultimate_ft(&p8);
-	
-	char c = (a / 10) + '0';
-
-	write(1, &c, 1);
-	c = (a % 10) + '0';
-	write(1, &c, 1);
+	char str[] = "merhaba";
+	printf("%d", ft_str_is_alpha(str));
 	return (0);
 }
