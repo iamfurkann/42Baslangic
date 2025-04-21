@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esduman <esduman@student.42istanbul.com.t  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/19 18:48:24 by esduman           #+#    #+#             */
-/*   Updated: 2025/04/20 19:39:32 by esduman          ###   ########.fr       */
+/*   Created: 2025/04/20 18:07:31 by esduman           #+#    #+#             */
+/*   Updated: 2025/04/20 19:45:40 by esduman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_str_is_alpha(char *str)
+int	ft_str_is_numeric(char *str)
 {
 	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
-		if(!(str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))
+		if (!(str[i] >= '0' && str[i] <= '9'))
 			return (0);
 		i++;
 	}
@@ -28,7 +28,8 @@ int	ft_str_is_alpha(char *str)
 
 int	main(void)
 {
-	char str[] = "mer1haba";
-	printf("%d", ft_str_is_alpha(str));
+	char str[] = {"1234a"};
+
+	printf("%d", ft_str_is_numeric(str));
 	return (0);
 }

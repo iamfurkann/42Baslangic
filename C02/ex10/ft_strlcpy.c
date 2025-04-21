@@ -1,34 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esduman <esduman@student.42istanbul.com.t  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/19 18:48:24 by esduman           #+#    #+#             */
-/*   Updated: 2025/04/20 19:39:32 by esduman          ###   ########.fr       */
+/*   Created: 2025/04/21 06:14:20 by esduman           #+#    #+#             */
+/*   Updated: 2025/04/21 06:57:57 by esduman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_str_is_alpha(char *str)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int	i;
+	unsigned int	i;
+	unsigned int	j;
 
 	i = 0;
-	while(str[i])
-	{
-		if(!(str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))
-			return (0);
+	while (src[i])
 		i++;
+
+	if (size > 0)
+	{
+		j = 0;
+		while (j < size - 1 && src[j])
+		{
+			dest[j] = src[j];
+			j++;
+		}
+		dest[j] = '\0';
 	}
-	return (1);
+
+	return i;
 }
 
 int	main(void)
 {
-	char str[] = "mer1haba";
-	printf("%d", ft_str_is_alpha(str));
+	char src[] = {"Hello World"};
+	char dest[10];
+
+	ft_strlcpy(dest, src, 10);
+
+	printf("%s", dest);
 	return (0);
 }

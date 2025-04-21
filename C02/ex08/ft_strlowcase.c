@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esduman <esduman@student.42istanbul.com.t  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/19 18:48:24 by esduman           #+#    #+#             */
-/*   Updated: 2025/04/20 19:39:32 by esduman          ###   ########.fr       */
+/*   Created: 2025/04/20 21:53:17 by esduman           #+#    #+#             */
+/*   Updated: 2025/04/20 22:06:17 by esduman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_str_is_alpha(char *str)
+char	*ft_strlowcase(char *str)
 {
 	int	i;
-
+	
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
-		if(!(str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))
-			return (0);
+		if((str[i] >= 'A' && str[i] <= 'Z'))
+			str[i] += 32;
 		i++;
 	}
-	return (1);
+	return (str);
 }
 
 int	main(void)
 {
-	char str[] = "mer1haba";
-	printf("%d", ft_str_is_alpha(str));
+	char str[] = {"AAaa"};
+
+	printf("%s", ft_strlowcase(str));
 	return (0);
 }
